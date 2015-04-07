@@ -4,12 +4,18 @@
 
 <form action="app\profile.php" method="post">
 <br>
+ the right: <input type="text" name="right"> <br>
+the checkList: <input type="text" name="checklist"> <br>
+
+the profile who deserve the right: <br>
+
 <div>
 <input type="checkbox" name="student" value="student" checked>סטודנט
 <br>
 <input type="checkbox" name="solder" value="solder">חייל<br>
 <input type="checkbox" name="resident" value="resident">תושב<br>
 <br>מצב משפחתי<br>
+<input type="select" name="status">
 <select> 
 <option value="NA">-</option>
   <option value="married">נשוי</option>
@@ -30,6 +36,7 @@
 
 
 <br>
+<button>add another profile number</button> <br>
 <input type="submit" value="Submit">	
 </form>
 </div>
