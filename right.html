@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
-
-
 <form action="app\profile.php" method="post">
+<input type="text" name="callPage" value="right" hidden>
 <br>
  the right: <input type="text" name="right"> <br>
 the checkList: <input type="text" name="checklist"> <br>
@@ -16,8 +18,8 @@ the profile who deserve the right: <br>
 <input type="checkbox" name="resident" value="resident">תושב<br>
 <br>מצב משפחתי<br>
 <input type="select" name="status">
-<select> 
-<option value="NA">-</option>
+<select name="status"> 
+<option value="">-</option>
   <option value="married">נשוי</option>
   <option value="single">רווק</option>
   <option value="divorced">גרוש</option>
@@ -40,13 +42,5 @@ the profile who deserve the right: <br>
 <input type="submit" value="Submit">	
 </form>
 </div>
-
-
 </body>
 </html>
-
-
-<?php
-echo "Hello";
-
-?>

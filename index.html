@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
-
-
 <form action="app\profile.php" method="post">
+<!--input type="text" name="callPage" value="index" hidden--> 
 <br>
 <div>
 <input type="checkbox" name="student" value="student" checked>סטודנט
@@ -10,15 +12,17 @@
 <input type="checkbox" name="solder" value="solder">חייל<br>
 <input type="checkbox" name="resident" value="resident">תושב<br>
 <br>מצב משפחתי<br>
-<select> 
-<option value="NA">-</option>
+<select name="status"> 
+<option value="">-</option>
   <option value="married">נשוי</option>
   <option value="single">רווק</option>
   <option value="divorced">גרוש</option>
 </select><br>
 <input type="text" name="email">אימייל:<br>
-<input type="checkbox" name="work">עובד:<br><div>
+<input type="checkbox" id='work' name="work">עובד:<br><div>
+<div id='salary' hidden>
 <input type="number" name="salary" min="0">הכנסה חודשית ממוצעת:<br>
+</div>
     <input type="number" name="age" min="0" max="120"> גיל:<br>
     <input type="number" name="age" min="0" max="120"> אוניברסיטה:<br>
 <input type="radio" name="sex" value="male" checked>זכר
@@ -33,13 +37,8 @@
 <input type="submit" value="Submit">	
 </form>
 </div>
-
-
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script script src="js/form.js"></script>
 </body>
 </html>
-
-
-<?php
-echo "Hello";
-
-?>
