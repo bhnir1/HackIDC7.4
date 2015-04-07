@@ -46,6 +46,7 @@ catch(PDOException $e)
 $right='\''.$_POST['right'].'\'';
 $checklist='\''.$_POST['checklist'].'\'';
 
+//TODO: verify if right already exist in DB with different ID
 //update the table rights.
 $sql = "INSERT INTO `rights`(`right`,`checkList`,`category`,`name`,`subject`)
 			 values($right,$checklist,'NONE','NONE','NONE')";
