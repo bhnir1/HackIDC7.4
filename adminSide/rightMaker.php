@@ -1,4 +1,5 @@
 ﻿<?php
+require '../app/DBconnect.php';
 
 $profile;
 // geting the profiles of right deservers from the form on manager side 
@@ -22,25 +23,8 @@ $encodeProfile=json_encode($profile);
 //connect to DB::
 // TODO OUTsource thisa function to external file.
 //TODO LOCK SESSION;
-function connectDB(){
-$servername = "localhost";
-$username = "admin";
-$password = "admin";
-$dbname="hackidc";	
-try {
-    $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
-	$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	return $connection;
-    }
-
-catch(PDOException $e)
-    {
-    echo $e->getMessage();
-	return null;
-    }	
-}
 
 //Fix parameters for the query,
 $right='\''.$_POST['right'].'\'';
