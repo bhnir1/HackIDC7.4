@@ -3,16 +3,36 @@
 
 
 <form action="profile.php",method="Post">
-First name:<br>
-<input type="text" name="firstname">
 <br>
-Last name:<br>
-<input type="text" name="lastname"><br>
-<input type="radio" name="sex" value="male" checked>Male
+<div>
+<input type="checkbox" name="student" value="student" checked>סטודנט
 <br>
-<input type="radio" name="sex" value="female">Female<br>
+<input type="checkbox" name="solder" value="solder">חייל<br>
+<input type="checkbox" name="resident" value="resident">תושב<br>
+<br>מצב משפחתי<br>
+<select> 
+<option value="NA">-</option>
+  <option value="married">נשוי</option>
+  <option value="single">רווק</option>
+  <option value="divorced">גרוש</option>
+</select><br>
+<input type="text" name="email">אימייל:<br>
+<input type="checkbox" name="work">עובד:<br>
+<input type="number" name="salary" min="0">הכנסה חודשית ממוצעת:<br>
+    <input type="number" name="age" min="0" max="120"> גיל:<br>
+    <input type="number" name="age" min="0" max="120"> אוניברסיטה:<br>
+<input type="radio" name="sex" value="male" checked>זכר
+<br>
+<input type="radio" name="sex" value="female">נקבה<br>
+<select>
+
+</select>
+
+
+<br>
 <input type="submit" value="Submit">	
 </form>
+</div>
 
 
 </body>
