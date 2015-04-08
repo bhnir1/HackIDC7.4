@@ -1,96 +1,126 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head>
 </head>
 <body>
-<form id='myprofile' action="adminSide\rightMaker.php" method="post">
-<input type="text" name="category" hidden>
-<br>
-the name: <input type="text" name="name"> <br>
-the subject: <input type="text" name="subject"> <br>
-the right: <input type="text" name="right"> <br>
+<div style="text-align:center">
+  <form id='myprofile' action="adminSide\rightMaker.php" method="post">
+    <input type="text" name="category" value='student' hidden>
+    <br>
+    right name: <input type="text" name="name"> <br>
+    the subject: <input type="text" name="subject"> <br>
+    more info5: <input type="text" name="right"> <br>
+
+    <div id="checklist" form='myprofile'>
+
+      <div>
+       the checkList: <br><textarea form'myprofile' rows='10' type="text" name="checklist"> </textarea ><br>
+     </div>
+
+   </div>
+
+   the value: <input type="text" name="value"> <br>
+   the valueShort: <input type="text" name="valueShort"> <br>
+   the function: <input type="text" name="function"> <br>
+   the reason: <input type="text" name="reason"> <br>
+
+   <br>----------<br>
+   the profile who deserve the right: <br>
+
+   <div>
+    <input type="checkbox" name="student" value="student" checked>סטודנט
+    <input type="checkbox" name="lerning disability" value="lerning disability" checked>לקוי למידה
+    <br>
+<!--     <input type="checkbox" name="solder" value="solder">חייל<br>
+    <input type="checkbox" name="resident" value="resident">תושב<br> -->
 
 
-<div id="checklist" form='myprofile'>
+    <select name="status"> 
+      <option value="">כולם</option>
+      <option value="married">נשוא/ה</option>
+      <option value="single">רווק/ה</option>
+      <option value="divorced">גרוש/ה</option>
+      <option value="Widower">אלמנ/ה</option>
+      <option value="marriage_wanbe">רשום לנישואין</option>
+    </select><br>
+    <input type="checkbox" name="work">עובד:<br><div>
+    <br>מקצוע:
+    <select name="jobTitle"> 
+      <option value="">כולם</option>
+      <option value="1">מלצרות וגני אירועים</option>
+      <option value="2">עובדי קבל</option>
+      <option value="3">שמירה ואבטחה</option>
+      <option value="4">ניקיון</option>
+      <option value="5">אחר</option>
+    </select>
+    <br>
+    <!--<input type="number" name="salary" min="0">הכנסה חודשית ממוצעת:<br>-->
+    <input type="number" name="salary_MIN" min="0"> הכנסה חודשית מינימאלי:<br>
+    <input type="number" name="salary_MAX" min="0"> הכנסה חודשית מקסימאלי:<br>
+    <input type="number" name="age_MIN" min="0" max="120"> גיל מינימאלי:<br>
+    <input type="number" name="age_MAX" min="0" max="120"> גיל מקסימאלי:<br>
+    <br>מין
+    <select name="gender"> 
+      <option value="">זכר ונקבה</option>
+      <option value="male">זכר</option>
+      <option value="female">נקבה</option>
+    </select><br>
+    <input type="checkbox" id='army' name="army" unchecked>שירות מילואים פעיל<br>
+    <input type="number" name="armyDays_MIN" min="0" max="365">ימי מילואים מינימאלי:<br>
+    <input type="number" name="armyDays_MAX" min="0" max="365">ימי מילואיפ מקסימאלי:<br>
 
-  <div>
- the checkList: <br><textarea form'myprofile' rows='10' type="text" name="checklist"> </textarea ><br>
+
+    <br>הורה לילדים:
+    <select name="parant"> 
+      <option value="">לא משנה</option>
+      <option value="1">לא</option>
+      <option value="2">מצפה לילד בקרוב</option>
+      <option value="3">הורה לילד אחד או יותר</option>
+    </select><br>
+    עיר:
+    <select name="city"> 
+      <option value="">כולם</option>
+      <option value="2">באר שבע</option>
+      <option value="9">חולון</option>
+      <option value="10">חיפה</option>
+      <option value="13">ירושלים</option>
+        <option value="25">הרצליה</option>
+        <option value="26">רמת השרון</option>
+        <option value="28">רעננה</option>
+        <option value="29">תל אביב</option>
+        <option value="30">אחר</option>
+      </select><br>
+
+
+    מוסד אקדמי:<br>
+    <select name="university"> 
+      <option value="">כולם</option>
+      <option value="1">הטכניון</option>
+      <option value="2">המרכז הבינתחומי</option>
+      <option value="3">אוניברסיטת תל אביב</option>
+      <option value="4">האוניברסיטה העיברית</option>
+      <option value="5">אוניברסיטת בן גוריון</option>
+      <option value="6">סמינר הקיבוצים</option>
+      <option value="7">ספיר</option>
+      <option value="8">מכון ויצמן</option>
+      <option value="9">אוניברסיטת חיפה</option>
+      <option value="10">מכללה למנהל</option>
+      <option value="11">רופין</option>
+      <option value="12">אוניברסיטת בר אילן</option>
+      <option value="13">מכון טכנולוגי חולו</option>
+      <option value="14">המרכז האקדמי פרס</option>
+      <option value="15">אוניברסיטת אריאל</option>
+      </select><br>
+
+      <br>
+      <button>add another profile number</button> <br>
+      <input type="submit" value="Submit">	
+    </form>
+  </div>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script script src="js/form.js"></script>
 </div>
-
-</div>
-
-
-
-the value: <input type="text" name="value"> <br>
-the valueShort: <input type="text" name="valueShort"> <br>
-the function: <input type="text" name="function"> <br>
-the reason: <input type="text" name="reason"> <br>
-
-
-
-<br>----------<br>
-the profile who deserve the right: <br>
-
-<div>
-<input type="checkbox" name="student" value="student" checked>סטודנט
-<br>
-<input type="checkbox" name="solder" value="solder">חייל<br>
-<input type="checkbox" name="resident" value="resident">תושב<br>
-<br>מצב משפחתי<br>
-<select name="status"> 
-<option value="">כולם</option>
-  <option value="married">נשוא/ה</option>
-  <option value="single">רווק/ה</option>
-  <option value="divorced">גרוש/ה</option>
-  <option value="Widower">אלמנ/ה</option>
-  <option value="marriage_wanbe">רשום לנישואין</option>
-</select><br>
-<input type="checkbox" name="work">עובד:<br><div>
-	<br>מקצוע:
-<select name="jobTitle"> 
-<option value="">כולם</option>
-  <option value="1">מלצרות וגני אירועים</option>
-  <option value="2">עובדי קבל</option>
-  <option value="3">שמירה ואבטחה</option>
-  <option value="4">ניקיון</option>
-  </select>
-  <br>
-<!--<input type="number" name="salary" min="0">הכנסה חודשית ממוצעת:<br>-->
-<input type="number" name="salary_MIN" min="0"> הכנסה חודשית מינימאלי:<br>
-<input type="number" name="salary_MAX" min="0"> הכנסה חודשית מקסימאלי:<br>
-<input type="number" name="age_MIN" min="0" max="120"> גיל מינימאלי:<br>
-<input type="number" name="age_MAX" min="0" max="120"> גיל מקסימאלי:<br>
-<br>מין
-<select name="gender"> 
-<option value="">זכר ונקבה</option>
-  <option value="male">זכר</option>
-  <option value="female">נקבה</option>
-</select><br>
-<input type="checkbox" id='army' name="army" unchecked>שירות מילואים פעיל<br>
-<input type="number" name="armyDays_MIN" min="0" max="365">ימי מילואים מינימאלי:<br>
-<input type="number" name="armyDays_MAX" min="0" max="365">ימי מילואיפ מקסימאלי:<br>
-
-
-	<br>הורה לילדים:
-<select name="parant"> 
-	 <option value="">לא משנה</option>
-  <option value="1">לא</option>
-  <option value="2">מצפה לילד בקרוב</option>
-  <option value="3">הורה לילד אחד או יותר</option>
-</select><br>
-עיר:
-<select name="city"> 
-<option value="">לעדכן בנתונים</option>
-  <option value="1">הרצליהם</option>
-</select><br>
-
-<br>
-<button>add another profile number</button> <br>
-<input type="submit" value="Submit">	
-</form>
-</div>
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script script src="js/form.js"></script>
 </body>
 </html>

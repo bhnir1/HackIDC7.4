@@ -55,6 +55,7 @@ foreach($statement->fetchAll() as $k=>$v) {
 	}
 
 }
+
 echo '<br>-----<br>';
 if(isset($relevantProfiles)){
 	print_r($relevantProfiles);
@@ -64,22 +65,16 @@ else {
 }
 
 $sql = 'select * from (select rightID FROM profileright Orders where ';
-// A.rightID,rights.name,rights.checklist
-// SELECT Customers.CustomerName, Orders.OrderID
-// FROM Customers
-// LEFT JOIN Orders
-// ON Customers.CustomerID=Orders.CustomerID
-// ORDER BY Customers.CustomerName;
 
 
-foreach ($relevantProfiles as $key => $value) {
-	$sql = $sql.'profileMD5='.'"'.$value.'"';
-	if($key< count($relevantProfiles)-1)  {
-		$sql=$sql.' OR ';
+	foreach ($relevantProfiles as $key => $value) {
+		$sql = $sql.'profileMD5='.'"'.$value.'"';
+		if($key< count($relevantProfiles)-1)  {
+			$sql=$sql.' OR ';
+		}
+
 	}
-
-}
-$sql=$sql.') As A,rights WHERE A.rightID=rights.ID';
+	$sql=$sql.') As A,rights WHERE A.rightID=rights.ID';
 //TODO: check why input is with &quot;&quot ;
 //echo '<br>'.$sql.'<br>';
 
@@ -96,9 +91,48 @@ catch(PDOException $e)
 	return null;
 }	
 
+$i='1';
 foreach($statement->fetchAll() as $k=>$v) {
-	echo '<br>'.$k.' : '.print_r($v).'<br>';
+echo "	
+
+		<br><div class=\"frame\">  
+		<br><div class=\"rightResultRow\">"."v\[image\]"."
+		</div>
+		<div class=\"rightResultRow\">".$v['category']."
+		<br><div class=\"rightResultRow\">".$v['name']."
+		</div>
+		<br><div class=\"rightResultRow\">".$v['valueShort']."
+		</div>
+		<br><div class=\"rightResultRow\">".$v['function']."
+		</div>
+		<br><div class=\"rightResultRow\">
+
+			<br><div class=\"rightResultRow\">".$v['value']."
+			</div>
+
+			<br><div class=\"rightResultRow List\">".$v['checkList']."
+			</div>
+			<br><div class=\"rightResultRow\">".$v['right']."
+			</div>
+
+
+			<div class=\"Reason\">
+			</div>
+
+		</div>
+	</div>";
+
+
+
+	echo '<br><br><br><br>שותקת<br><br><br><br><br>';
+
+
+
+/*	echo '<br>'.$k.' : '.print_r($v).'<br>';*/
 }
+
+
+
 
 
 ?>

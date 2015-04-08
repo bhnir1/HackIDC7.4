@@ -10,7 +10,7 @@ $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // geting the profiles of right deservers from the form on manager side 
 foreach ($_POST as $key => $value) {
 
-	if ($value && ($key =='right' || $key =='checklist' || $key =='value' || $key =='valueShort' || $key =='function' || $key =='reason' || $key =='category')) {
+	if ($value && ($key =='right' || $key =='checklist' || $key =='value' || $key =='valueShort' || $key =='function' || $key =='reason' || $key =='name' || $key =='category')) {
 			// add to md5 the value of each input
 		//echo "inline";
 		$prepare_md5=$prepare_md5.$value;
@@ -27,7 +27,7 @@ foreach ($_POST as $key => $value) {
 		echo "\"" . $key . "\"".' : '. "\"" . $value. "\"" . ',<br>';
 }
 
-	//echo $prepare_md5;
+//echo $prepare_md5;
 	$_md5=md5($prepare_md5);
 //	echo var_dump($_md5);
 // TODO: hndle multiple profiles for a right
@@ -35,6 +35,11 @@ foreach ($_POST as $key => $value) {
 
 // encoding profile to json 
 $encodeProfile=json_encode($profile);
+
+ 
+    
+
+
 
 function test_input($data) {
 	$data = trim($data);
@@ -55,19 +60,19 @@ $reason='\''.test_input($_POST['reason']).'\'';
 
 	
 
-	$sql = 'select count(*) from rights where right_key LIKE \''.$_md5.'\'';
-	$statement = $connection->prepare($sql);
-	$statement->execute();
-	$_md5='\''.$_md5.'\'';
-			//verift that there is no right with the same MD5 (duplicate right):
-	$count=$statement->fetchAll()[0][0];
-	if(($count)==0) {
+	// $sql = 'select count(*) from rights where right_key LIKE \''.$_md5.'\'';
+	// $statement = $connection->prepare($sql);
+	// $statement->execute();
+	 $_md5='\''.$_md5.'\'';
+	// 		//verift that there is no right with the same MD5 (duplicate right):
+	// $count=$statement->fetchAll()[0][0];
+	// if(($count)==0) {
 
 		//update the table rights.
 		$sql = "INSERT INTO `rights`(`right`,`checkList`,`category`,`name`,`subject`,`value`,`valueShort`,`function`,`reason`,`right_key`)
 		values ($right,$checklist,$category,$name,$subject,$value,$valueShort,$function,$reason,$_md5)";
+echo $sql.'<br>';
 
-		//TODO: inseret the execution into try catch::::::::::::::::::::: 
 		//echo '<br>111<br>';
 		try {
 			//echo '<br>222<br>';
@@ -97,12 +102,12 @@ $reason='\''.test_input($_POST['reason']).'\'';
 		
 		}				
 
-	}
-	else
-	{
+	// }
+	// else
+	// {
 
-		echo 'זכות זהה כבר קיימת במערכת';
-	}
+	// 	echo 'זכות זהה כבר קיימת במערכת';
+	// }
 
 	$connection->exec('UNLOCK TABLES' );
 	$connection=NULL;

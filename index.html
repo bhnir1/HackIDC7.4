@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head>
 </head>
 <body>
@@ -7,13 +8,13 @@
 <!--input type="text" name="callPage" value="index" hidden--> 
 <br>
 <div>
-<input type="checkbox" name="student" value="student" checked>סטודנט
+<input type="checkbox" name="student" value="student" checked hidden>סטודנט
 <br>
-<input type="checkbox" name="solder" value="solder">חייל<br>
-<input type="checkbox" name="resident" value="resident">תושב<br>
+<!-- <input type="checkbox" name="solder" value="solder">חייל<br>
+<input type="checkbox" name="resident" value="resident">תושב<br> -->
 <br>מצב משפחתי<br>
 <select name="status"> 
-<option value="">אחר</option>
+<option value="">בחר</option>
   <option value="married">נשוא/ה</option>
   <option value="single">רווק/ה</option>
   <option value="divorced">גרוש/ה</option>
@@ -24,7 +25,7 @@
 <div id='salary' hidden>
 	<br>מקצוע:
 <select name="jobTitle"> 
-<option value="">אחר</option>
+<option value="">בחר</option>
   <option value="1">מלצרות וגני אירועים</option>
   <option value="2">עובדי קבל</option>
   <option value="3">שמירה ואבטחה</option>
@@ -38,11 +39,21 @@
   <option value="2">מצפה לילד בקרוב</option>
   <option value="3">הורה לילד אחד או יותר</option>
 </select><br>
+
 עיר:
-<select name="city"> 
-<option value="">לעדכן בנתונים</option>
-  <option value="1">הרצליהם</option>
-</select><br>
+    <select name="city"> 
+      <option value="">בחר</option>
+      <option value="2">באר שבע</option>
+      <option value="9">חולון</option>
+      <option value="10">חיפה</option>
+      <option value="13">ירושלים</option>
+      <option value="25">הרצליה</option>
+      <option value="26">רמת השרון</option>
+      <option value="28">רעננה</option>
+      <option value="29">תל אביב</option>
+      <option value="30">אחר</option>
+  </select><br>
+
 <input type="checkbox" id='army' name="army" unchecked>שירות מילואים פעיל<br>
 <div id='armyDays' hidden>
 <input type="number" name="armyDays" min="0" max="365">ימי מילואים:<br>
