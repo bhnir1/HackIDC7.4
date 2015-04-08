@@ -13,26 +13,44 @@
 <input type="checkbox" name="resident" value="resident">תושב<br>
 <br>מצב משפחתי<br>
 <select name="status"> 
-<option value="">-</option>
-  <option value="married">נשוי</option>
-  <option value="single">רווק</option>
-  <option value="divorced">גרוש</option>
+<option value="">אחר</option>
+  <option value="married">נשוא/ה</option>
+  <option value="single">רווק/ה</option>
+  <option value="divorced">גרוש/ה</option>
+  <option value="Widower">אלמנ/ה</option>
+  <option value="marriage_wanbe">רשום לנישואין</option>
 </select><br>
-<input type="text" name="email">אימייל:<br>
 <input type="checkbox" id='work' name="work" unchecked>עובד:<br><div>
 <div id='salary' hidden>
+	<br>מקצוע:
+<select name="jobTitle"> 
+<option value="">אחר</option>
+  <option value="1">מלצרות וגני אירועים</option>
+  <option value="2">עובדי קבל</option>
+  <option value="3">שמירה ואבטחה</option>
+  <option value="4">ניקיון</option>
+</select><br>
 <input type="number" name="salary" min="0">הכנסה חודשית ממוצעת:<br>
 </div>
+	<br>הורה לילדים:
+<select name="parant"> 
+  <option value="1">לא</option>
+  <option value="2">מצפה לילד בקרוב</option>
+  <option value="3">הורה לילד אחד או יותר</option>
+</select><br>
+עיר:
+<select name="city"> 
+<option value="">לעדכן בנתונים</option>
+  <option value="1">הרצליהם</option>
+</select><br>
+<input type="checkbox" id='army' name="army" unchecked>שירות מילואים פעיל<br>
+<div id='armyDays' hidden>
+<input type="number" name="age" min="0" max="365">ימי מילואים:<br>
+</div>
     <input type="number" name="age" min="0" max="120"> גיל:<br>
-    <input type="number" name="age" min="0" max="120"> אוניברסיטה:<br>
-<input type="radio" name="sex" value="male" checked>זכר
+<input type="radio" name="sex" value="male" >זכר
 <br>
-<input type="radio" name="sex" value="female">נקבה<br>
-<select>
-
-</select>
-
-
+<input type="radio" name="sex" value="female" checked>נקבה<br>
 <br>
 <input type="submit" value="Submit">	
 </form>

@@ -18,24 +18,51 @@ the profile who deserve the right: <br>
 <input type="checkbox" name="resident" value="resident">תושב<br>
 <br>מצב משפחתי<br>
 <select name="status"> 
-<option value="">-</option>
-  <option value="married">נשוי</option>
-  <option value="single">רווק</option>
-  <option value="divorced">גרוש</option>
+<option value="">כולם</option>
+  <option value="married">נשוא/ה</option>
+  <option value="single">רווק/ה</option>
+  <option value="divorced">גרוש/ה</option>
+  <option value="Widower">אלמנ/ה</option>
+  <option value="marriage_wanbe">רשום לנישואין</option>
 </select><br>
 <input type="checkbox" name="work">עובד:<br><div>
+	<br>מקצוע:
+<select name="jobTitle"> 
+<option value="">כולם</option>
+  <option value="1">מלצרות וגני אירועים</option>
+  <option value="2">עובדי קבל</option>
+  <option value="3">שמירה ואבטחה</option>
+  <option value="4">ניקיון</option>
+  </select>
+  <br>
 <!--<input type="number" name="salary" min="0">הכנסה חודשית ממוצעת:<br>-->
 <input type="number" name="salary_MIN" min="0"> הכנסה חודשית מינימאלי:<br>
 <input type="number" name="salary_MAX" min="0"> הכנסה חודשית מקסימאלי:<br>
 <input type="number" name="age_MIN" min="0" max="120"> גיל מינימאלי:<br>
 <input type="number" name="age_MAX" min="0" max="120"> גיל מקסימאלי:<br>
-<input type="radio" name="sex" value="male" checked>זכר
-<br>
-<input type="radio" name="sex" value="female">נקבה<br>
-<select>
+<br>מין
+<select name="gender"> 
+<option value="">זכר ונקבה</option>
+  <option value="male">זכר</option>
+  <option value="female">נקבה</option>
+</select><br>
+<input type="checkbox" id='army' name="army" unchecked>שירות מילואים פעיל<br>
+<input type="number" name="armyDays_MIN" min="0" max="365">ימי מילואים מינימאלי:<br>
+<input type="number" name="armyDays_MAX" min="0" max="365">ימי מילואיפ מקסימאלי:<br>
 
-</select>
 
+	<br>הורה לילדים:
+<select name="parant"> 
+	 <option value="">לא משנה</option>
+  <option value="1">לא</option>
+  <option value="2">מצפה לילד בקרוב</option>
+  <option value="3">הורה לילד אחד או יותר</option>
+</select><br>
+עיר:
+<select name="city"> 
+<option value="">לעדכן בנתונים</option>
+  <option value="1">הרצליהם</option>
+</select><br>
 
 <br>
 <button>add another profile number</button> <br>
