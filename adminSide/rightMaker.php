@@ -50,15 +50,15 @@ echo "<br>".$rightId."<br>";
 //
 $rightId = '\''.$rightId.'\'';
 $encodeProfile = '\''.$encodeProfile.'\'';
+$_md5='\''.md5($encodeProfile).'\'';
+
 //update the table profile.
 //need to support multiple profile so USE foreach
-$sql = "INSERT INTO `profileright`(`rightID`,`profile`)
-			 values($rightId,$encodeProfile)";
+$sql = "INSERT INTO `profileright`(`rightID`,`profile`,`profileMD5`)
+			 values($rightId,$encodeProfile,$_md5)";
 		$statement = $connection->prepare($sql);
 		$statement->execute();
 
 
 // need to check ENDOF session;
 ?>
-
-
