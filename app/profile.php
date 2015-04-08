@@ -63,8 +63,8 @@ else {
 	echo '<br>--isEmpty---<br>';
 }
 
-$sql = 'select A.rightID,rights.name from (select rightID FROM profileright Orders where ';
-
+$sql = 'select * from (select rightID FROM profileright Orders where ';
+// A.rightID,rights.name,rights.checklist
 // SELECT Customers.CustomerName, Orders.OrderID
 // FROM Customers
 // LEFT JOIN Orders
@@ -79,8 +79,8 @@ foreach ($relevantProfiles as $key => $value) {
 	}
 
 }
-$sql=$sql.') As A  LEFT JOIN rights ON A.rightID=rights.ID';
-
+$sql=$sql.') As A,rights WHERE A.rightID=rights.ID';
+//TODO: check why input is with &quot;&quot ;
 //echo '<br>'.$sql.'<br>';
 
 try {
@@ -97,7 +97,7 @@ catch(PDOException $e)
 }	
 
 foreach($statement->fetchAll() as $k=>$v) {
-	echo '<br>'.$k.' : '.$v[0].' '.$v[1].'<br>';
+	echo '<br>'.$k.' : '.print_r($v).'<br>';
 }
 
 
