@@ -17,10 +17,16 @@ foreach ($_POST as $key => $value) {
 
 	}
 	else if ($value){
-		echo "\"" . $key . "\"".' : '. "\"" . $value. "\"" . ',<br>';
+		// echo "\"" . $key . "\"".' : '. "\"" . $value. "\"" . ',<br0>';
 		$profile[$key]=$value;
 	}
 }
+
+foreach ($_POST as $key => $value) {
+
+		echo "\"" . $key . "\"".' : '. "\"" . $value. "\"" . ',<br>';
+}
+
 	//echo $prepare_md5;
 	$_md5=md5($prepare_md5);
 //	echo var_dump($_md5);

@@ -3,13 +3,24 @@
 <head>
 </head>
 <body>
-<form action="adminSide\rightMaker.php" method="post">
+<form id='myprofile' action="adminSide\rightMaker.php" method="post">
 <input type="text" name="category" hidden>
 <br>
 the name: <input type="text" name="name"> <br>
 the subject: <input type="text" name="subject"> <br>
 the right: <input type="text" name="right"> <br>
-the checkList: <input type="text" name="checklist"> <br>
+
+
+<div id="checklist" form='myprofile'>
+
+  <div>
+ the checkList: <br><textarea form'myprofile' rows='10' type="text" name="checklist"> </textarea ><br>
+</div>
+
+</div>
+
+
+
 the value: <input type="text" name="value"> <br>
 the valueShort: <input type="text" name="valueShort"> <br>
 the function: <input type="text" name="function"> <br>
@@ -78,5 +89,8 @@ the profile who deserve the right: <br>
 <input type="submit" value="Submit">	
 </form>
 </div>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script script src="js/form.js"></script>
 </body>
 </html>
