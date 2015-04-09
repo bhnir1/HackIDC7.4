@@ -2,18 +2,61 @@
 <html>
 <meta charset="UTF-8">
 <head>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<style>
 	.frame {
-		background-color: #d0e4fe;
+		vertical-align: center;
 		text-align: center;
-		width: 300px;
-		border:1px;
-		padding: 20px 0px 20px 0px; 
+		border:4px;
+		border-style: solid;
+		border-color: #000;
+		/*padding: 20px 0px 20px 0px; */
+		position: relative;
+
 	}
 
 	.topRight {
-		color: orange;
+
+	}
+
+	.image {
+		margin-left: -20px;
+
+
+	}
+	.Title{
 		text-align: center;
+		color:orange;
+	}
+	.name{
+		text-align: center;
+		color:blue;
+	}
+	.function{
+		text-align: center;
+		color:blue;
+	}
+	.value{
+		text-align: center;
+		color:blue;
+	}
+	.valueShort{
+		text-align: center;
+		color:blue;
+	}
+	.checkList{
+		text-align: center;
+		color:blue;
+	}
+	.bottom {
+		color:blue;
+		/*position: relative;*/
+		
+	}
+	.reason {
+		color:blue;
+		/*position: relative;*/
+		
 	}
 
 	p {
@@ -23,24 +66,26 @@
 	</style>
 </head>
 <body>
-	<div class="frame">
-		<div class="image">image
+	<div class="frame col-md-6 col-md-offset-3">
+		<div class="image col-md-4 "><img src="army.png">
 		</div>
-		<div class="topRight">
-			<div class="Title">Title
+		<div class="topRight col-md-8">
+			<div class="subject"><h1><?php echo $v['subject']?></h1>
 			</div>
-			<div class="value">value
+			<div class="name"><h2>סוג הזכות: <?php echo $v['name']?> </h2>
 			</div>
-			<div class="Function">Function
+			<div class="valueShort"><h2>גובה ההטבה:<?php echo $v['valueShort']?></h2>
+			</div>
+			<div class="function"><h2>למי צריך לפנות:<?php echo $v['function']?></h2>
 			</div>
 		</div>
-		<div class="bottom">
-				<div class="info">info
-				</div>
-				<div class="Check List">Check List
-				</div>
-				<div class="Reason">Reason
-			</div>
+		<div class="bottom col-md-12">
+			<div class="value"><h3><b>הסבר מפורט: <?php echo $v['value']?></b>
+			</div></h3>
+			<div class="checkList"><h3><b>מה צריך לעשות? <?php echo $v['checkList']?></b>
+			</div></h3>
+			<div class="reason"> <h3><b>למה זה מגיע לי? <?php echo $v['reason']?></b>
+			</div></h3>
 		</div>
 	</div>
 </body>

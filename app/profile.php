@@ -12,8 +12,8 @@ foreach ($_POST as $key => $value) {
 	$myprofile[$key]=$value;
 }
 //test
-print_r($myprofile);
-echo '<br>';
+//print_r($myprofile);
+//echo '<br>';
 // 
 
 $sql = 'select DISTINCT profileMD5,profile FROM profileright';
@@ -34,6 +34,11 @@ catch(PDOException $e)
 foreach($statement->fetchAll() as $k=>$v) {
 	$profile=json_decode($v['profile'],true);
 	$isGoodProfile = true;
+	// safty:: need to check DB
+	if(!$profile)
+	{
+		continue;
+	}
 	foreach($profile as $key=>$value) {
 		if((strpos($key,'_MIN') == true) && ($myprofile[preg_replace('/_MIN$/s', '', $key)]<$value)) {
 			$isGoodProfile=false;
@@ -56,13 +61,13 @@ foreach($statement->fetchAll() as $k=>$v) {
 
 }
 
-echo '<br>-----<br>';
-if(isset($relevantProfiles)){
-	print_r($relevantProfiles);
-}
-else {
-	echo '<br>--isEmpty---<br>';
-}
+//echo '<br>-----<br>';
+// if(isset($relevantProfiles)){
+// 	print_r($relevantProfiles);
+// }
+// else {
+// 	echo '<br>--isEmpty---<br>';
+// }
 
 $sql = 'select * from (select rightID FROM profileright Orders where ';
 
@@ -91,47 +96,131 @@ catch(PDOException $e)
 	return null;
 }	
 
-$i='1';
+echo "<html>
+<meta charset=\"UTF-8\">
+<head>
+	<link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
+	<style>
+	.frame {
+		vertical-align: center;
+		text-align: center;
+		border:4px;
+		border-style: solid;
+		border-color: #000;
+		/*padding: 20px 0px 20px 0px; */
+		position: relative;
+		margin-top: 10px;
+	}
+
+	.topRight {
+
+	}
+
+	.image {
+		margin-left: -20px;
+
+
+	}
+	.subject{
+		text-align: right;
+		color:orange;
+	}
+	.name{
+		text-align: right;
+		color:#387FBB;
+	}
+	.function{
+		text-align: right;
+		color:#387FBB;
+	}
+	.value{
+		text-align: right;
+		color:#387FBB;
+	}
+	.valueShort{
+		text-align: right;
+		color:#387FBB;
+	}
+	.checkList{
+		text-align: right;
+		color:#387FBB;
+	}
+	.bottom {
+			text-align: right;
+		color:#387FBB;
+		/*position: relative;*/
+		
+	}
+	.reason {
+			text-align: right;
+		color:#387FBB;
+		/*position: relative;*/
+		
+	}
+
+	p {
+		font-family: \"Times New Roman\";
+		font-size: 20px;
+	}
+	</style>
+</head>
+<body>";
+
+
+function getImage($subject){
+if($subject=="מילואים")
+	return "../img/army.png";
+else if ($subject=="משפחה") {
+	return "../img/family.png";
+}
+	else if ($subject=="תעסוקה"){
+	return "../img/money.png";
+}
+		else if ($subject=="תחבורה"){
+	return "../img/bike.png";
+}
+return  "../img/academy.png";
+}
+
 foreach($statement->fetchAll() as $k=>$v) {
+
+
+$imagePath = getImage($v['subject']);
+
 echo "	
-
-		<br><div class=\"frame\">  
-		<br><div class=\"rightResultRow\">"."v\[image\]"."
+	<div class=\"frame col-md-6 col-md-offset-3\">
+		<div class=\"image col-md-4 \"><img src=\"".$imagePath."\">
 		</div>
-		<div class=\"rightResultRow\">".$v['category']."
-		<br><div class=\"rightResultRow\">".$v['name']."
-		</div>
-		<br><div class=\"rightResultRow\">".$v['valueShort']."
-		</div>
-		<br><div class=\"rightResultRow\">".$v['function']."
-		</div>
-		<br><div class=\"rightResultRow\">
-
-			<br><div class=\"rightResultRow\">".$v['value']."
+		<div class=\"topRight col-md-8\">
+			<div class=\"subject\"><h1>".$v['subject']."</h1>
 			</div>
-
-			<br><div class=\"rightResultRow List\">".$v['checkList']."
+			<div class=\"name\"><h2><b>סוג הזכות: </b>".$v['name']." </h2>
 			</div>
-			<br><div class=\"rightResultRow\">".$v['right']."
+			<div class=\"valueShort\"><h2><b>ההטבה:</b>".$v['valueShort']."</h2>
 			</div>
-
-
-			<div class=\"Reason\">
+			<div class=\"function\"><h2><b>למי צריך לפנות:</b>".$v['function']."</h2>
 			</div>
-
 		</div>
-	</div>";
+		<div class=\"bottom col-md-12\">
+			<div class=\"value\"><h3><b>הסבר מפורט: </b>".$v['value']."
+			</div></h3>
+			<div class=\"checkList\"><h3><b>מה צריך לעשות?</b> ".$v['checkList']."
+			</div></h3>
+			<div class=\"reason\"> <h3><b>למה זה מגיע לי?</b> ".$v['reason']."
+			</div></h3>
+		</div>
+	</div>
+";
 
 
-
-	echo '<br><br><br><br>שותקת<br><br><br><br><br>';
 
 
 
 /*	echo '<br>'.$k.' : '.print_r($v).'<br>';*/
 }
 
-
+echo "</body>
+</html>";
 
 
 
