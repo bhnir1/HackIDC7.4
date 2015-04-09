@@ -187,6 +187,7 @@ foreach($statement->fetchAll() as $k=>$v) {
 
 $imagePath = getImage($v['subject']);
 
+$checklistWithEnter = str_replace('*', '<br>',$v['checkList']);
 echo "	
 	<div class=\"frame col-md-6 col-md-offset-3\">
 		<div class=\"image col-md-4 \"><img src=\"".$imagePath."\">
@@ -204,7 +205,7 @@ echo "
 		<div class=\"bottom col-md-12\">
 			<div class=\"value\"><h3><b>הסבר מפורט: </b>".$v['value']."
 			</div></h3>
-			<div class=\"checkList\"><h3><b>מה צריך לעשות?</b> ".$v['checkList']."
+			<div class=\"checkList\"><h3><b>מה צריך לעשות?</b> ".$checklistWithEnter."
 			</div></h3>
 			<div class=\"reason\"> <h3><b>למה זה מגיע לי?</b> ".$v['reason']."
 			</div></h3>
