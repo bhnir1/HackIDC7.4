@@ -8,7 +8,7 @@ $relevantProfiles = [];
 
 foreach ($_POST as $key => $value) {
 	//test
-	// echo "\"" . $key . "\"".' : '. "\"" . $value. "\"" . ',<br>';
+	//echo "\"" . $key . "\"".' : '. "\"" . $value. "\"" . ',<br>';
 	$myprofile[$key]=$value;
 }
 //test
@@ -110,6 +110,8 @@ echo "<html>
 		/*padding: 20px 0px 20px 0px; */
 		position: relative;
 		margin-top: 10px;
+		direction: rtl;
+		padding-left: 0px;
 	}
 
 	.topRight {
@@ -117,9 +119,9 @@ echo "<html>
 	}
 
 	.image {
-		margin-left: -20px;
-
-
+	margin-left: 0px;
+	padding-left: 0px;
+	border:0px;
 	}
 	.subject{
 		text-align: right;
@@ -162,6 +164,14 @@ echo "<html>
 		font-family: \"Times New Roman\";
 		font-size: 20px;
 	}
+	.moreButton{
+		float:right;
+		padding-right:20px;
+		max-height: 30px;
+		text-align: right;
+		color:orange;
+	}
+
 	</style>
 </head>
 <body>";
@@ -190,8 +200,7 @@ $imagePath = getImage($v['subject']);
 $checklistWithEnter = str_replace('*', '<br>',$v['checkList']);
 echo "	
 	<div class=\"frame col-md-6 col-md-offset-3\">
-		<div class=\"image col-md-4 \"><img src=\"".$imagePath."\">
-		</div>
+		<img class=\"image col-md-4\" src=\"".$imagePath."\">
 		<div class=\"topRight col-md-8\">
 			<div class=\"subject\"><h1>".$v['subject']."</h1>
 			</div>
@@ -202,7 +211,11 @@ echo "
 			<div class=\"function\"><h2><b>למי צריך לפנות:</b>".$v['function']."</h2>
 			</div>
 		</div>
-		<div class=\"bottom col-md-12\">
+		<div class=\"moreButtonDiv\">
+			<img class=\"moreButton\" alt=\"more details\" src=\"..\img\moreButton.png\">
+			<h4 class=\"moreButton\">קרא עוד...</h4>
+		</div>
+		<div class=\"bottom col-md-12\" hidden>
 			<div class=\"value\"><h3><b>הסבר מפורט: </b>".$v['value']."
 			</div></h3>
 			<div class=\"checkList\"><h3><b>מה צריך לעשות?</b> ".$checklistWithEnter."
@@ -220,7 +233,11 @@ echo "
 /*	echo '<br>'.$k.' : '.print_r($v).'<br>';*/
 }
 
-echo "</body>
+echo "
+<script src=\"//code.jquery.com/jquery-1.10.2.js\"></script>
+<script src=\"//code.jquery.com/ui/1.11.4/jquery-ui.js\"></script>
+<script src=\"../js/profile.js\"></script>
+</body>
 </html>";
 
 
